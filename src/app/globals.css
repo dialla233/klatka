@@ -1,26 +1,224 @@
 @import "tailwindcss";
 
+/* ═══════════════════════════════════════════════════════════
+   KLATKA — Design System
+   Typographic cinema. Dark. Organic. Powerful.
+   ═══════════════════════════════════════════════════════════ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ── Backgrounds ── */
+  --k-bg: #0a0a0b;
+  --k-bg-card: #111113;
+  --k-bg-elevated: #1a1a1e;
+  --k-bg-hover: #222228;
+  --k-bg-active: #2a2a32;
+
+  /* ── Text ── */
+  --k-text: #e8e8ec;
+  --k-text-secondary: #a0a0ab;
+  --k-text-tertiary: #6b6b76;
+  --k-text-ghost: #3a3a42;
+
+  /* ── Accent — warm amber (film projection light) ── */
+  --k-accent: #d4a853;
+  --k-accent-dim: rgba(212, 168, 83, 0.12);
+  --k-accent-glow: rgba(212, 168, 83, 0.25);
+
+  /* ── Borders ── */
+  --k-border: rgba(255, 255, 255, 0.06);
+  --k-border-hover: rgba(255, 255, 255, 0.12);
+  --k-border-accent: rgba(212, 168, 83, 0.3);
+
+  /* ── Glass ── */
+  --k-glass: rgba(17, 17, 19, 0.85);
+  --k-glass-heavy: rgba(10, 10, 11, 0.95);
+
+  /* ── Chapter accents (subtle) ── */
+  --k-ch-expectations: #d4a853;
+  --k-ch-ai: #06b6d4;
+  --k-ch-idea: #6366f1;
+  --k-ch-budget: #10b981;
+  --k-ch-finance: #10b981;
+  --k-ch-project: #8b5cf6;
+  --k-ch-story: #f59e0b;
+  --k-ch-tech: #06b6d4;
+  --k-ch-people: #ec4899;
+  --k-ch-audience: #f97316;
+  --k-ch-distribution: #14b8a6;
+  --k-ch-marketing: #e11d48;
+  --k-ch-monetization: #10b981;
+  --k-ch-collabo: #8b5cf6;
+  --k-ch-grants: #0ea5e9;
+  --k-ch-opensource: #22c55e;
+  --k-ch-community: #f59e0b;
+
+  /* ── Typography ── */
+  --k-font-display: 'Space Grotesk', system-ui, sans-serif;
+  --k-font-body: 'Inter', system-ui, sans-serif;
+  --k-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* ── Sizes ── */
+  --k-text-jumbo: clamp(4rem, 15vw, 12rem);
+  --k-text-display: clamp(2.5rem, 6vw, 5rem);
+  --k-text-h1: clamp(1.75rem, 3.5vw, 2.5rem);
+  --k-text-h2: clamp(1.25rem, 2vw, 1.5rem);
+  --k-text-h3: 1.125rem;
+  --k-text-body: 1rem;
+  --k-text-small: 0.875rem;
+  --k-text-caption: 0.75rem;
+  --k-text-overline: 0.6875rem;
+
+  /* ── Spacing ── */
+  --k-space-1: 0.25rem;
+  --k-space-2: 0.5rem;
+  --k-space-3: 0.75rem;
+  --k-space-4: 1rem;
+  --k-space-6: 1.5rem;
+  --k-space-8: 2rem;
+  --k-space-12: 3rem;
+  --k-space-16: 4rem;
+  --k-space-24: 6rem;
+  --k-space-32: 8rem;
+
+  /* ── Radius ── */
+  --k-radius-sm: 6px;
+  --k-radius-md: 10px;
+  --k-radius-lg: 16px;
+  --k-radius-xl: 24px;
+
+  /* ── Transitions ── */
+  --k-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --k-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --k-duration: 300ms;
+  --k-duration-slow: 600ms;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-k-bg: var(--k-bg);
+  --color-k-bg-card: var(--k-bg-card);
+  --color-k-bg-elevated: var(--k-bg-elevated);
+  --color-k-bg-hover: var(--k-bg-hover);
+  --color-k-text: var(--k-text);
+  --color-k-text-secondary: var(--k-text-secondary);
+  --color-k-text-tertiary: var(--k-text-tertiary);
+  --color-k-text-ghost: var(--k-text-ghost);
+  --color-k-accent: var(--k-accent);
+  --color-k-border: var(--k-border);
+  --font-display: var(--k-font-display);
+  --font-body: var(--k-font-body);
+  --font-mono: var(--k-font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Base ── */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--k-bg);
+  color: var(--k-text);
+  font-family: var(--k-font-body);
+  font-size: var(--k-text-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--k-accent-dim);
+  color: var(--k-accent);
+}
+
+/* ── Scrollbar ── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--k-text-ghost);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--k-text-tertiary);
+}
+
+/* ── Film Grain Overlay ── */
+
+.film-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+/* ── Jumbo Text ── */
+
+.jumbo {
+  font-family: var(--k-font-display);
+  font-size: var(--k-text-jumbo);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--k-text);
+  user-select: none;
+}
+
+.display {
+  font-family: var(--k-font-display);
+  font-size: var(--k-text-display);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--k-text);
+}
+
+.overline {
+  font-family: var(--k-font-display);
+  font-size: var(--k-text-overline);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--k-text-ghost);
+}
+
+/* ── Glass Card ── */
+
+.glass {
+  background: var(--k-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--k-border);
+  border-radius: var(--k-radius-lg);
+}
+
+/* ── Horizontal Rule (cinematic) ── */
+
+.cinema-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--k-text-ghost) 20%,
+    var(--k-text-tertiary) 50%,
+    var(--k-text-ghost) 80%,
+    transparent 100%
+  );
+  border: none;
 }
