@@ -1,4 +1,4 @@
-import OpenAI from "openai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import { buildSystemPrompt } from "@/lib/ai/system-prompts";
 import { db } from "@/lib/db";
 import { filmmakerProfiles } from "@/lib/db/schema";
@@ -8,11 +8,9 @@ export async function POST(req: Request) {
   try {
     const { messages, chapterSlug } = await req.json();
 
-    if (!process.env.OPENAI_API_KEY) {
-      return new Response("Missing OPENAI_API_KEY", { status: 500 });
+    if (!process.env.GEMINI_API_KEY) {
+      return new Response("Missing GEMINI_API_KEY", { status: 500 });
     }
-
-    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
     // Load filmmaker profile for context
     let profileSummary: string | undefined;
@@ -40,7 +38,7 @@ export async function POST(req: Request) {
         }
       }
     } catch {
-      // Profile loading is optional, continue without it
+      // Profile loading is optional
     }
 
     const systemPrompt = buildSystemPrompt(
@@ -48,24 +46,47 @@ export async function POST(req: Request) {
       profileSummary
     );
 
-    const response = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
-      stream: true,
-      messages: [
-        { role: "system", content: systemPrompt },
-        ...messages.slice(-20),
-      ],
-      temperature: 0.8,
-      max_tokens: 1500,
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    const model = genAI.getGenerativeModel({
+      model: "gemini-2.0-flash",
+      systemInstruction: systemPrompt,
     });
+
+    // Convert messages to Gemini format
+    const history = messages.slice(-20).map((m: { role: string; content: string }) => ({
+      role: m.role === "assistant" ? "model" : "user",
+      parts: [{ text: m.content }],
+    }));
+
+    // Last message is the user's current message
+    const lastMessage = history.pop();
+    if (!lastMessage) {
+      return new Response("No messages", { status: 400 });
+    }
+
+    const chat = model.startChat({
+      history: history.length > 0 ? history : undefined,
+      generationConfig: {
+        temperature: 0.8,
+        maxOutputTokens: 1500,
+      },
+    });
+
+    const result = await chat.sendMessageStream(lastMessage.parts[0].text);
 
     const stream = new ReadableStream({
       async start(controller) {
         const encoder = new TextEncoder();
 
-        for await (const chunk of response) {
-          const data = JSON.stringify(chunk);
-          controller.enqueue(encoder.encode(`data: ${data}\n\n`));
+        for await (const chunk of result.stream) {
+          const text = chunk.text();
+          if (text) {
+            // Send in OpenAI-compatible SSE format for the frontend
+            const data = JSON.stringify({
+              choices: [{ delta: { content: text } }],
+            });
+            controller.enqueue(encoder.encode(`data: ${data}\n\n`));
+          }
         }
 
         controller.enqueue(encoder.encode("data: [DONE]\n\n"));
