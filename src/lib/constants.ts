@@ -52,7 +52,7 @@ export const CHAPTERS: Chapter[] = [
     number: 5,
     description: "Jak zaplanować budżet studenckiego filmu?",
     accentVar: "--k-ch-budget",
-    phase: "phase2",
+    phase: "mvp",
   },
   {
     slug: "finansowanie",
@@ -61,7 +61,7 @@ export const CHAPTERS: Chapter[] = [
     number: 6,
     description: "Granty, crowdfunding, sponsorzy — skąd wziąć kasę?",
     accentVar: "--k-ch-finance",
-    phase: "phase2",
+    phase: "mvp",
   },
   {
     slug: "projekt",
@@ -70,7 +70,7 @@ export const CHAPTERS: Chapter[] = [
     number: 7,
     description: "Zarządzanie projektem filmowym od A do Z.",
     accentVar: "--k-ch-project",
-    phase: "phase2",
+    phase: "mvp",
   },
   {
     slug: "technologia",
@@ -79,7 +79,7 @@ export const CHAPTERS: Chapter[] = [
     number: 8,
     description: "Kamery, AI, software — narzędzia współczesnego filmowca.",
     accentVar: "--k-ch-tech",
-    phase: "phase2",
+    phase: "mvp",
   },
   {
     slug: "ludzie",
@@ -88,7 +88,7 @@ export const CHAPTERS: Chapter[] = [
     number: 9,
     description: "Jak budować ekipę i pracować z ludźmi?",
     accentVar: "--k-ch-people",
-    phase: "phase2",
+    phase: "mvp",
   },
   {
     slug: "odbiorcy",
@@ -97,7 +97,7 @@ export const CHAPTERS: Chapter[] = [
     number: 10,
     description: "Dla kogo robisz film? Zdefiniuj swoją publiczność.",
     accentVar: "--k-ch-audience",
-    phase: "phase2",
+    phase: "mvp",
   },
   {
     slug: "dystrybucja",
@@ -106,7 +106,7 @@ export const CHAPTERS: Chapter[] = [
     number: 11,
     description: "Festiwale, VOD, kina — jak dotrzeć do widza?",
     accentVar: "--k-ch-distribution",
-    phase: "phase2",
+    phase: "mvp",
   },
   {
     slug: "marketing",
@@ -115,7 +115,7 @@ export const CHAPTERS: Chapter[] = [
     number: 12,
     description: "Jak wypromować swój film?",
     accentVar: "--k-ch-marketing",
-    phase: "phase2",
+    phase: "mvp",
   },
   {
     slug: "monetyzacja",
@@ -124,7 +124,7 @@ export const CHAPTERS: Chapter[] = [
     number: 13,
     description: "Jak zarabiać na filmach?",
     accentVar: "--k-ch-monetization",
-    phase: "phase2",
+    phase: "mvp",
   },
   {
     slug: "collabo",
@@ -133,7 +133,7 @@ export const CHAPTERS: Chapter[] = [
     number: 14,
     description: "Kolaboracje, partnerstwa, co-produkcje.",
     accentVar: "--k-ch-collabo",
-    phase: "phase2",
+    phase: "mvp",
   },
   {
     slug: "dofinansowania",
@@ -142,7 +142,7 @@ export const CHAPTERS: Chapter[] = [
     number: 15,
     description: "Dofinansowania, edukacja, transparentność w akademii.",
     accentVar: "--k-ch-grants",
-    phase: "phase2",
+    phase: "mvp",
   },
   {
     slug: "open-source",
@@ -151,7 +151,7 @@ export const CHAPTERS: Chapter[] = [
     number: 16,
     description: "Open source w filmie — narzędzia i filozofia.",
     accentVar: "--k-ch-opensource",
-    phase: "phase2",
+    phase: "mvp",
   },
   {
     slug: "community",
@@ -160,7 +160,7 @@ export const CHAPTERS: Chapter[] = [
     number: 17,
     description: "Budowanie społeczności wokół swojego kina.",
     accentVar: "--k-ch-community",
-    phase: "phase2",
+    phase: "mvp",
   },
 ];
 
