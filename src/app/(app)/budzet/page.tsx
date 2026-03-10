@@ -6,74 +6,67 @@ import ActionStep from "@/components/content/action-step";
 export default function BudzetPage() {
   return (
     <div>
-      <JumboText text="BUDZET" accentVar="--k-ch-budget" />
+      <JumboText text="BUDŻT" accentVar="--k-ch-budget" />
 
       <ChapterHeader
         title="Budżet"
-        description="Jak zaplanować budżet studenckiego filmu? Ile naprawdę kosztuje produkcja?"
+        description="AI zredukowało koszt filmu z $200k do $3k. Oto jak to liczyć."
         number={5}
         accentVar="--k-ch-budget"
       />
 
-      <SectionBlock title="Trzy poziomy budżetu" delay={0}>
+      <SectionBlock title="Co AI zastąpiło" delay={0}>
         <div className="space-y-3">
           <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
-            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>
-              0–5 000 PLN — Guerrilla
-            </p>
-            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>
-              Telefon/lustrzanka, naturalny dźwięk, znajomi jako aktorzy, lokacje publiczne. AI generuje muzykę i efekty. Wystarczy na etiudę 5-15 min.
-            </p>
+            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Scenarzysta → Claude</p>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Tradycyjnie: $5-15k za scenariusz. Teraz: Claude Opus pisze, przepisuje, analizuje strukturę — $20/msc. Ty jesteś reżyserem, AI jest maszyną do pisania.</p>
           </div>
           <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
-            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>
-              5–20 000 PLN — Studencki
-            </p>
-            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>
-              Wypożyczony sprzęt, gaże symboliczne, catering, transport. Profesjonalny dźwięk. Realna jakość festiwalowa.
-            </p>
+            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>VFX team → Runway / Kling / ComfyUI</p>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Tradycyjnie: $20-100k za VFX. Teraz: Runway Gen-3 generuje ujęcia za $0.05/sek. ComfyUI na Twoim GPU — za darmo. Jeden człowiek robi robotę 10-osobowego studia.</p>
           </div>
           <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
-            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>
-              20–100 000 PLN — Niskobudżetowy
-            </p>
-            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>
-              Pełna ekipa, wynajęte lokacje, ubezpieczenie, postprodukcja w studiu. Wymaga dofinansowania lub koproducenta.
-            </p>
+            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Kompozytor + sound → Suno / ElevenLabs</p>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Tradycyjnie: $3-10k za muzykę. Teraz: Suno generuje soundtrack w 30 sekund. ElevenLabs robi foley i ambience. Koszt: $10-30/msc.</p>
           </div>
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Gdzie NIE oszczędzać" delay={0.1}>
-        <ul className="list-none space-y-2">
-          <li className="flex gap-2">
-            <span style={{ color: "var(--k-accent)" }}>→</span>
-            <span><strong>Dźwięk</strong> — Zły dźwięk zabija film szybciej niż zły obraz.</span>
-          </li>
-          <li className="flex gap-2">
-            <span style={{ color: "var(--k-accent)" }}>→</span>
-            <span><strong>Catering</strong> — Głodna ekipa to zła ekipa. Podstawa logistyki.</span>
-          </li>
-          <li className="flex gap-2">
-            <span style={{ color: "var(--k-accent)" }}>→</span>
-            <span><strong>Ubezpieczenie</strong> — Jeden wypadek na planie może kosztować więcej niż cały film.</span>
-          </li>
-          <li className="flex gap-2">
-            <span style={{ color: "var(--k-accent)" }}>→</span>
-            <span><strong>Color grading</strong> — To robi różnicę między &quot;amatorskim&quot; a &quot;kinowym&quot;.</span>
-          </li>
-        </ul>
+      <SectionBlock title="Na co faktycznie wydajesz" delay={0.1}>
+        <div className="space-y-3">
+          <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
+            <div className="flex justify-between items-center mb-1">
+              <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)" }}>AI stack</p>
+              <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-accent)" }}>~$100/msc</p>
+            </div>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Claude Pro ($20), Runway ($15-35), Midjourney ($10), Suno ($10), ElevenLabs ($5-22). To jest Twoje &quot;studio&quot;.</p>
+          </div>
+          <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
+            <div className="flex justify-between items-center mb-1">
+              <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)" }}>Sprzęt (jednorazowo)</p>
+              <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-accent)" }}>$1-3k</p>
+            </div>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Mirrorless + dobry mikrofon + 2 panele LED. Albo: wynajmij na weekend za $200. AI upscaluje z 1080p do 4K.</p>
+          </div>
+          <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
+            <div className="flex justify-between items-center mb-1">
+              <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)" }}>Ludzie + lokacja</p>
+              <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-accent)" }}>$500-2k</p>
+            </div>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Jedyny koszt, którego AI nie wyeliminuje (jeszcze). Aktor, lokacja, catering. Kręcisz 2-5 dni, nie 30.</p>
+          </div>
+        </div>
       </SectionBlock>
 
       <SectionBlock title="Twoje zadania" delay={0.2}>
-        <ActionStep step={1} title="Stwórz budżet w arkuszu">
-          <p>Podziel na: pre-produkcja, produkcja, post-produkcja, marketing. AI pomoże Ci oszacować koszty.</p>
+        <ActionStep step={1} title="Policz swój AI stack">
+          <p>Otwórz spreadsheet. Wypisz subskrypcje AI. Policz miesięczny koszt. Porównaj z tradycyjnym budżetem.</p>
         </ActionStep>
-        <ActionStep step={2} title="Zrób listę barterów">
-          <p>Kto może pożyczyć sprzęt? Kto udostępni lokację? Co możesz załatwić bez pieniędzy?</p>
+        <ActionStep step={2} title="Stwórz budżet na $3k">
+          <p>Poproś Claude o breakdown budżetu z pełnym AI pipeline. Daj mu swój projekt — dostaniesz realistyczny plan.</p>
         </ActionStep>
-        <ActionStep step={3} title="Oblicz koszt jednego dnia zdjęciowego">
-          <p>Transport + catering + wynajem + gaże + rezerwa 15%. To Twoja jednostka planowania.</p>
+        <ActionStep step={3} title="Co MUSISZ mieć fizycznie?">
+          <p>Kamera? Aktor? Lokacja? Lista absolutnego minimum. Resztę robi AI.</p>
         </ActionStep>
       </SectionBlock>
     </div>

@@ -6,46 +6,49 @@ import ActionStep from "@/components/content/action-step";
 export default function MarketingPage() {
   return (
     <div>
-      <JumboText text="MARKET" accentVar="--k-ch-marketing" />
+      <JumboText text="PROMO" accentVar="--k-ch-marketing" />
 
       <ChapterHeader
         title="Marketing"
-        description="Jak wypromować swój film? Social media, PR, premiera."
+        description="Jeden człowiek z AI = cały dział marketingu. Plakaty, trailery, social — automat."
         number={12}
         accentVar="--k-ch-marketing"
       />
 
-      <SectionBlock title="Materiały marketingowe" delay={0}>
-        <ul className="list-none space-y-2">
-          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Plakat</strong> — Jeden kadr, który mówi wszystko. Midjourney pomoże z konceptem.</span></li>
-          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Trailer</strong> — 60-90 sekund. Hook w 3 sekundy. Nie spoileruj zakończenia.</span></li>
-          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>BTS (Behind the Scenes)</strong> — TikToki/Reelsy z planu. Ludzie kochają proces.</span></li>
-          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Press kit (EPK)</strong> — Synopsis, biogramy, stills, plakat, dane techniczne. PDF + folder z materiałami.</span></li>
-        </ul>
-      </SectionBlock>
-
-      <SectionBlock title="Social media strategy" delay={0.1}>
+      <SectionBlock title="AI marketing machine" delay={0}>
         <div className="space-y-3">
           <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
-            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Instagram / TikTok</p>
-            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>BTS content, frame studies, color grading before/after, gear reviews. Buduj brand filmowca, nie tylko filmy.</p>
+            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Plakaty → Midjourney / Flux</p>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>10 wariantów plakatu w 20 minut. A/B testuj na social media. Tradycyjnie: grafik za $2k i 2 tygodnie. Teraz: prompt + iteracja + gotowe.</p>
           </div>
           <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
-            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>YouTube</p>
-            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Vlogi produkcyjne, tutoriale, breakdowny. Dłuższy format = głębsza relacja z widzem. Monetyzowalny.</p>
+            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Teasery / trailery → Runway + ElevenLabs</p>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Trailer koncepcyjny PRZED nakręceniem filmu. Teaser z wygenerowanych ujęć. Voice-over z AI. Soundtrack z Suno. Cały pipeline za godzinę.</p>
+          </div>
+          <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
+            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Social content → Claude + n8n</p>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Claude pisze 30 postów naraz. n8n scheduluje posty automatycznie. Behind-the-scenes, making-of, cytaty z filmu — content pipeline na miesiąc w 2 godziny.</p>
           </div>
         </div>
       </SectionBlock>
 
+      <SectionBlock title="Press kit automat" delay={0.1}>
+        <ul className="list-none space-y-2">
+          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>EPK (Electronic Press Kit)</strong> — Claude pisze: synopsis (3 wersje: 25/50/150 słów), bio reżysera, notatkę reżyserską, dane techniczne. W 10 minut.</span></li>
+          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Still photography</strong> — Midjourney generuje promotional stills w stylu Twojego filmu. Albo: AI upscaluje i stylizuje kadry z filmu.</span></li>
+          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Press outreach</strong> — Claude personalizuje e-maile do 50 dziennikarzy filmowych. Każdy mail inny, dopasowany do ich profilu. Mass outreach, personal touch.</span></li>
+        </ul>
+      </SectionBlock>
+
       <SectionBlock title="Twoje zadania" delay={0.2}>
-        <ActionStep step={1} title="Zacznij dokumentować proces">
-          <p>Od dziś. Każdy etap to content. Telefon w kieszeni, 30 sekund dziennie. Potem zmontuj.</p>
+        <ActionStep step={1} title="Wygeneruj 5 plakatów">
+          <p>Midjourney / Flux. 5 różnych kierunków wizualnych. Pokaż znajomym — który działa najlepiej?</p>
         </ActionStep>
-        <ActionStep step={2} title="Stwórz EPK">
-          <p>Nawet dla projektu studenckiego. Synopsis, 5 stills, 1 plakat, dane techniczne. AI pomoże z tekstami.</p>
+        <ActionStep step={2} title="EPK w 30 minut">
+          <p>Daj Claude opis filmu. Poproś o pełny EPK: synopsy, bio, notatkę reżyserską, dane techniczne. Copy-paste do PDF.</p>
         </ActionStep>
-        <ActionStep step={3} title="Zaplanuj premierę">
-          <p>Pokaz + Q&A + networking. Zaproś ludzi z branży. Jeden dobry pokaz &gt; 100 lajków online.</p>
+        <ActionStep step={3} title="Content calendar na miesiąc">
+          <p>Claude generuje 30 postów. Rozplanuj: Instagram, X, TikTok. Zaplanuj posty z n8n albo Buffer.</p>
         </ActionStep>
       </SectionBlock>
     </div>

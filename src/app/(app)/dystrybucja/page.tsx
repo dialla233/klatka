@@ -6,50 +6,49 @@ import ActionStep from "@/components/content/action-step";
 export default function DystrybucjaPage() {
   return (
     <div>
-      <JumboText text="DYSTRY" accentVar="--k-ch-distribution" />
+      <JumboText text="DYSTR" accentVar="--k-ch-distribution" />
 
       <ChapterHeader
-        title="Kanały dystrybucji"
-        description="Festiwale, VOD, kina — jak dotrzeć do widza?"
+        title="Dystrybucja"
+        description="Self-distribution z AI. Nie potrzebujesz dystrybutora. Potrzebujesz strategii."
         number={11}
         accentVar="--k-ch-distribution"
       />
 
-      <SectionBlock title="Festiwale filmowe" delay={0}>
+      <SectionBlock title="Ścieżki dystrybucji 2025" delay={0}>
         <div className="space-y-3">
           <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
-            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Tier A — Marzenie</p>
-            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Cannes, Berlinale, Sundance, Locarno, Wenecja. Premiere status required. Złóż — nie masz nic do stracenia.</p>
+            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Festiwale z AI strategy</p>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Film Freeway → Claude analizuje Ci 200 festiwali i wybiera 20 najlepszych dla Twojego filmu. AI pisze synopsy w 6 językach. AI generuje DCP-ready plakat. Submissions za $200 zamiast $2000.</p>
           </div>
           <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
-            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Polskie — realistyczne</p>
-            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Gdynia, Nowe Horyzonty, Camerimage (dla operatorów!), Off Cinema, Żubroffka. Twój naturalny teren.</p>
+            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Direct-to-audience</p>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Własna strona (Next.js + Vercel), Vimeo On Demand, YouTube Premiere. Zbierasz e-maile, budujesz publiczność, kontrolujesz revenue. Zero pośredników.</p>
           </div>
           <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
-            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Niszowe i tematyczne</p>
-            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>AI Film Festival (Runway), Encounters, SXSW shorts, Clermont-Ferrand. Mniej competition, bardziej precyzyjny target.</p>
+            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Global z AI subtitles</p>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>ElevenLabs dubbing w 29 językach. Whisper do transkrypcji. AI tłumaczy napisy z kontekstem kulturowym. Twój film z Katowic ogląda ktoś w Tokio — bez dystrybutora.</p>
           </div>
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Film Freeway — jak aplikować" delay={0.1}>
+      <SectionBlock title="Twoja strona dystrybucyjna" delay={0.1}>
         <ul className="list-none space-y-2">
-          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Profil</strong> — Profesjonalne stills, synopsis EN/PL, trailer jeśli masz.</span></li>
-          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Strategia</strong> — Zacznij od mniejszych festiwali. Buduj CV selekcjami.</span></li>
-          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Budżet</strong> — Submission fees: 5-50 USD. Zaplanuj 200-500 PLN na kampanię festiwalową.</span></li>
-          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Timeline</strong> — Złóż 6-12 miesięcy przed deadline&apos;em. Early bird = tańsze fee.</span></li>
+          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Next.js + Vercel</strong> — Landing page filmu: trailer, synopsis, press kit, link do oglądania. Deploy w 30 minut. Claude Code Ci to napisze.</span></li>
+          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Stripe / Gumroad</strong> — Pay-what-you-want albo fixed price. Widzowie płacą Tobie bezpośrednio. Zero prowizji dystrybutora.</span></li>
+          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Analytics</strong> — Vercel Analytics + Plausible. Wiesz skąd przychodzą widzowie, co klikają, ile oglądają. Data-driven distribution.</span></li>
         </ul>
       </SectionBlock>
 
       <SectionBlock title="Twoje zadania" delay={0.2}>
-        <ActionStep step={1} title="Załóż konto na Film Freeway">
-          <p>Uzupełnij profil. Dodaj materiały. Nawet bez gotowego filmu — przygotuj się.</p>
+        <ActionStep step={1} title="Film Freeway + Claude">
+          <p>Załóż profil. Daj Claude opis filmu — niech wybierze top 15 festiwali z uzasadnieniem i terminami.</p>
         </ActionStep>
-        <ActionStep step={2} title="Zrób listę 20 festiwali">
-          <p>Dobierz do gatunku i długości swojego filmu. AI pomoże Ci znaleźć najlepsze dopasowania.</p>
+        <ActionStep step={2} title="Landing page filmu">
+          <p>Next.js, Vercel, własna domena. Trailer, synopsis, press kit. Claude Code pisze, Ty deployszujesz.</p>
         </ActionStep>
-        <ActionStep step={3} title="Przygotuj DCP lub ProRes master">
-          <p>Większość festiwali wymaga DCP (Digital Cinema Package) lub ProRes 422 HQ. Zacznij od ProRes.</p>
+        <ActionStep step={3} title="Napisy AI w 5 językach">
+          <p>Whisper → transkrypcja → Claude → tłumaczenie z kontekstem → SRT/VTT. Globalny zasięg za $0.</p>
         </ActionStep>
       </SectionBlock>
     </div>

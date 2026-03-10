@@ -6,50 +6,58 @@ import ActionStep from "@/components/content/action-step";
 export default function TechnologiaPage() {
   return (
     <div>
-      <JumboText text="TECHNO" accentVar="--k-ch-tech" />
+      <JumboText text="STACK" accentVar="--k-ch-tech" />
 
       <ChapterHeader
         title="Technologia"
-        description="Kamery, AI, software — narzędzia współczesnego filmowca."
+        description="Twój filmmaking stack. AI + kamera + laptop = studio produkcyjne."
         number={8}
         accentVar="--k-ch-tech"
       />
 
-      <SectionBlock title="Kamery — co wybrać?" delay={0}>
+      <SectionBlock title="AI Video Generation" delay={0}>
         <div className="space-y-3">
           <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
-            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>iPhone 15/16 Pro</p>
-            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>ProRes, Log, Cinematic Mode. Sean Baker nakręcił &quot;Tangerine&quot; na iPhone&apos;a. Zaczynasz z tym co masz.</p>
+            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Sora / Runway Gen-3 / Kling 2.0</p>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Generujesz ujęcia, których nie możesz nakręcić. Krajobraz marsjański? Lata 20.? Podwodna scena? Text-to-video + image-to-video. Mieszaj z materiałem kręconym — widz nie rozróżni.</p>
           </div>
           <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
-            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Sony FX3 / A7S III</p>
-            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Full frame, 4K 120fps, świetne ISO. Standard indie produkcji. Od 10k PLN (używane).</p>
+            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>ComfyUI + Stable Diffusion</p>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Open source. Twój GPU = Twoje studio VFX. Nieskończone generacje, zero opłat. Custom modele, ControlNet, IP-Adapter. Pełna kontrola nad każdym pixelem.</p>
           </div>
           <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
-            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Blackmagic Pocket 6K</p>
-            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>RAW, super kolor science, DaVinci Resolve w zestawie. Najlepszy stosunek ceny do jakości kinowej.</p>
+            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Midjourney / Flux / DALL-E</p>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Storyboardy w minuty zamiast dni. Concept art, moodboardy, plakaty. Reżyser wizualny, nie rysownik — opisujesz, AI rysuje.</p>
           </div>
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Dźwięk — fundamenty" delay={0.1}>
+      <SectionBlock title="AI Audio + Post" delay={0.1}>
         <ul className="list-none space-y-2">
-          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Zoom H5/H6</strong> — Rejestrator terenowy. Must-have na każdym planie.</span></li>
-          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Rode NTG5</strong> — Shotgun mic. Czysty dialog, odcięcie tła.</span></li>
-          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Sennheiser MKE 600</strong> — Alternatywa: cieplejszy ton, klasyka.</span></li>
-          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>DPA / Sanken lavalier</strong> — Do ukrytego nagrywania dialogów.</span></li>
+          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>ElevenLabs</strong> — Voice cloning, lector, dubbing w 29 językach. Sound effects z text-to-SFX.</span></li>
+          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Suno / Udio</strong> — Soundtrack na zamówienie. &quot;Ambient tension like Jonny Greenwood&quot; — gotowe w 30 sekund.</span></li>
+          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Topaz Video AI</strong> — Upscale 1080p → 4K, slow-mo z interpolacją. Ratujesz materiał, którego nie da się ponownie nakręcić.</span></li>
+          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>DaVinci Resolve + AI</strong> — Magic Mask, AI color matching, voice isolation. Darmowa wersja = 95% Studio. Montaż, grading, VFX — jedna apka.</span></li>
+        </ul>
+      </SectionBlock>
+
+      <SectionBlock title="Minimum viable camera" delay={0.15}>
+        <ul className="list-none space-y-2">
+          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Kamera</strong> — Sony A7III / Fuji X-T5 / iPhone 15 Pro z Blackmagic Camera app. LOG, 10-bit, 4K. Reszta to grading.</span></li>
+          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Dźwięk</strong> — Rode VideoMic NTG lub Zoom H1n. AI usunie szum (Adobe Podcast AI), ale czysty dźwięk to fundament.</span></li>
+          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Światło</strong> — 2x Aputure MC / Nanlite Litolite. Małe, RGB, na akumulator. Na plan wchodzisz z plecakiem, nie z vanem.</span></li>
         </ul>
       </SectionBlock>
 
       <SectionBlock title="Twoje zadania" delay={0.2}>
-        <ActionStep step={1} title="Zrób test swojego sprzętu">
-          <p>Nakręć 30 sekund w najgorszych warunkach (niskie światło, hałas). Zobacz limity swojego zestawu.</p>
+        <ActionStep step={1} title="Zainstaluj ComfyUI">
+          <p>Twój GPU to Twoje studio VFX. Zainstaluj, załaduj model, wygeneruj pierwsze ujęcie. Claude Code pomoże z setupem.</p>
         </ActionStep>
-        <ActionStep step={2} title="Porównaj workflow RAW vs compressed">
-          <p>Nakręć tę samą scenę w obu formatach. Porównaj w DaVinci. Czy różnica jest warta czasu?</p>
+        <ActionStep step={2} title="Test Runway / Kling">
+          <p>Weź jedno ujęcie z kamery. Daj do image-to-video. Porównaj z oryginałem. Naucz się promptować wideo.</p>
         </ActionStep>
-        <ActionStep step={3} title="Zbuduj swój kit list">
-          <p>Stwórz listę sprzętu na swój projekt. AI pomoże dobrać sprzęt do budżetu.</p>
+        <ActionStep step={3} title="Zbuduj swój stack">
+          <p>Wypisz: co generuję (AI), co kręcę (kamera), co mieszam. Twój osobisty pipeline produkcyjny.</p>
         </ActionStep>
       </SectionBlock>
     </div>

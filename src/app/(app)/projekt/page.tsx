@@ -6,51 +6,50 @@ import ActionStep from "@/components/content/action-step";
 export default function ProjektPage() {
   return (
     <div>
-      <JumboText text="PROJKT" accentVar="--k-ch-project" />
+      <JumboText text="PROJK" accentVar="--k-ch-project" />
 
       <ChapterHeader
         title="Projekt"
-        description="Zarządzanie projektem filmowym od A do Z. Pre-produkcja, plan, logistyka."
+        description="Zarządzanie filmem jak software — z automatyzacją, pipeline'ami i AI."
         number={7}
         accentVar="--k-ch-project"
       />
 
-      <SectionBlock title="Pre-produkcja — fundament" delay={0}>
-        <p className="mb-3">80% sukcesu filmu to pre-produkcja. Im lepiej się przygotujesz, tym mniej problemów na planie.</p>
-        <ul className="list-none space-y-2">
-          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Breakdown scenariusza</strong> — Rozłóż każdą scenę na elementy: aktorzy, rekwizyty, lokacje, FX.</span></li>
-          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Stripboard</strong> — Harmonogram zdjęciowy: które sceny kiedy kręcisz.</span></li>
-          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Call sheet</strong> — Kto, gdzie, o której. Każdy dzień zdjęciowy.</span></li>
-          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Shot list</strong> — Lista ujęć z opisem: rozmiar kadru, ruch kamery, obiektyw.</span></li>
-        </ul>
-      </SectionBlock>
-
-      <SectionBlock title="Narzędzia" delay={0.1}>
+      <SectionBlock title="One-person production pipeline" delay={0}>
         <div className="space-y-3">
           <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
-            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>StudioBinder</p>
-            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Darmowy plan: call sheets, shot lists, storyboardy. Standard branżowy.</p>
+            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Claude Code = Twój AD</p>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Breakdown scenariusza, shot list, harmonogram — Claude generuje w minuty to, co AD robi tygodniami. MCP servery podłączone do kalendarza, plików, bazy danych.</p>
           </div>
           <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
-            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Notion / Trello</p>
-            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Do zarządzania taskami, deadline&apos;ami, komunikacją z ekipą. Elastyczne, darmowe.</p>
+            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>n8n = automatyzacja produkcji</p>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Webhook → transkrypcja dailies → auto-log do bazy → powiadomienie. Nowy plik w Dropbox → auto-backup → rename → katalogowanie. Zero manualnej roboty.</p>
           </div>
           <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
-            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>AI Storyboarding</p>
-            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Midjourney + shot list = wizualny plan zdjęciowy. Zamiast rysować — generuj.</p>
+            <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Next.js + Vercel = production hub</p>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Dashboard produkcji: status scen, timeline, media assets, notatki. Deploy na Vercel — production hub dostępny z telefonu na planie.</p>
           </div>
         </div>
       </SectionBlock>
 
+      <SectionBlock title="Dev tools → film tools" delay={0.1}>
+        <ul className="list-none space-y-2">
+          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Git</strong> — Wersjonowanie scenariusza. Każda wersja zapisana, diff między wersjami, branch na alternatywne zakończenia.</span></li>
+          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>GitHub Projects</strong> — Kanban: pre-produkcja → zdjęcia → post → dystrybucja. Każda scena to issue.</span></li>
+          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Claude Code</strong> — Pisze Ci skrypty: FFmpeg pipeline&apos;y, batch processing, automatyczne renaming plików.</span></li>
+          <li className="flex gap-2"><span style={{ color: "var(--k-accent)" }}>→</span><span><strong>Supabase / NeonDB</strong> — Baza danych produkcji. Casting, lokacje, sprzęt, harmonogram — wszystko queryable.</span></li>
+        </ul>
+      </SectionBlock>
+
       <SectionBlock title="Twoje zadania" delay={0.2}>
-        <ActionStep step={1} title="Zrób breakdown jednej sceny">
-          <p>Weź najważniejszą scenę i rozłóż ją: kto, co, gdzie, jaki sprzęt. AI pomoże.</p>
+        <ActionStep step={1} title="Postaw production hub">
+          <p>Next.js na Vercel. Dashboard z listą scen, statusami, timeline&apos;em. Claude Code napisze w godzinę.</p>
         </ActionStep>
-        <ActionStep step={2} title="Stwórz shot list">
-          <p>Minimum: numer ujęcia, opis, rozmiar kadru, ruch kamery. Maksimum: storyboard z AI.</p>
+        <ActionStep step={2} title="Scenariusz w Git">
+          <p>Markdown + Git. Każda wersja to commit. Branch &quot;alt-ending&quot;. Diff między wersjami. Profesjonalny workflow.</p>
         </ActionStep>
-        <ActionStep step={3} title="Zaplanuj jeden dzień zdjęciowy">
-          <p>Call sheet: godziny, lokacja, transport, catering, plan awaryjny. Przetestuj na jednej scenie.</p>
+        <ActionStep step={3} title="Jeden n8n workflow">
+          <p>Nowy plik → auto-rename → log do spreadsheet. Prosty start, potem budujesz dalej.</p>
         </ActionStep>
       </SectionBlock>
     </div>
