@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import JumboText from "@/components/layout/jumbo-text";
 import ChapterHeader from "@/components/layout/chapter-header";
+import { parseSSEStream } from "@/lib/parse-sse";
 
 interface Message {
   id: string;
@@ -42,9 +43,6 @@ export default function OnboardingPage() {
         }),
       });
 
-      const reader = response.body?.getReader();
-      if (!reader) return;
-
       const assistantMsg: Message = {
         id: "intro",
         role: "assistant",
@@ -52,25 +50,10 @@ export default function OnboardingPage() {
       };
       setMessages([assistantMsg]);
 
-      const decoder = new TextDecoder();
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-
-        const chunk = decoder.decode(value, { stream: true });
-        for (const line of chunk.split("\n")) {
-          if (line.startsWith("data: ") && line.slice(6) !== "[DONE]") {
-            try {
-              const parsed = JSON.parse(line.slice(6));
-              const token = parsed.choices?.[0]?.delta?.content;
-              if (token) {
-                assistantMsg.content += token;
-                setMessages([{ ...assistantMsg }]);
-              }
-            } catch {}
-          }
-        }
-      }
+      await parseSSEStream(response, (token) => {
+        assistantMsg.content += token;
+        setMessages([{ ...assistantMsg }]);
+      });
     } catch (err) {
       console.error(err);
     } finally {
@@ -106,9 +89,6 @@ export default function OnboardingPage() {
         }),
       });
 
-      const reader = response.body?.getReader();
-      if (!reader) return;
-
       const assistantMsg: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
@@ -117,31 +97,16 @@ export default function OnboardingPage() {
 
       setMessages((prev) => [...prev, assistantMsg]);
 
-      const decoder = new TextDecoder();
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-
-        const chunk = decoder.decode(value, { stream: true });
-        for (const line of chunk.split("\n")) {
-          if (line.startsWith("data: ") && line.slice(6) !== "[DONE]") {
-            try {
-              const parsed = JSON.parse(line.slice(6));
-              const token = parsed.choices?.[0]?.delta?.content;
-              if (token) {
-                assistantMsg.content += token;
-                setMessages((prev) =>
-                  prev.map((m) =>
-                    m.id === assistantMsg.id
-                      ? { ...m, content: assistantMsg.content }
-                      : m
-                  )
-                );
-              }
-            } catch {}
-          }
-        }
-      }
+      await parseSSEStream(response, (token) => {
+        assistantMsg.content += token;
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.id === assistantMsg.id
+              ? { ...m, content: assistantMsg.content }
+              : m
+          )
+        );
+      });
     } catch (err) {
       console.error(err);
     } finally {

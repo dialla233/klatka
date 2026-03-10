@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
+import { parseSSEStream } from "@/lib/parse-sse";
 
 interface Message {
   id: string;
@@ -66,9 +67,6 @@ export default function ChatPanel({
 
       if (!response.ok) throw new Error("Chat request failed");
 
-      const reader = response.body?.getReader();
-      if (!reader) throw new Error("No reader");
-
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
@@ -77,37 +75,16 @@ export default function ChatPanel({
 
       setMessages((prev) => [...prev, assistantMessage]);
 
-      const decoder = new TextDecoder();
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-
-        const chunk = decoder.decode(value, { stream: true });
-        const lines = chunk.split("\n");
-
-        for (const line of lines) {
-          if (line.startsWith("data: ")) {
-            const data = line.slice(6);
-            if (data === "[DONE]") continue;
-            try {
-              const parsed = JSON.parse(data);
-              const token = parsed.choices?.[0]?.delta?.content;
-              if (token) {
-                assistantMessage.content += token;
-                setMessages((prev) =>
-                  prev.map((m) =>
-                    m.id === assistantMessage.id
-                      ? { ...m, content: assistantMessage.content }
-                      : m
-                  )
-                );
-              }
-            } catch {
-              // skip malformed JSON
-            }
-          }
-        }
-      }
+      await parseSSEStream(response, (token) => {
+        assistantMessage.content += token;
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.id === assistantMessage.id
+              ? { ...m, content: assistantMessage.content }
+              : m
+          )
+        );
+      });
     } catch (error) {
       console.error("Chat error:", error);
       setMessages((prev) => [
