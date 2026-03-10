@@ -12,6 +12,8 @@ interface Message {
   content: string;
 }
 
+const TRIGGER_MESSAGE = "Cześć, chcę zacząć. Przeprowadź ze mną wywiad.";
+
 export default function OnboardingPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -36,7 +38,7 @@ export default function OnboardingPage() {
           messages: [
             {
               role: "user",
-              content: "Cześć, chcę zacząć. Przeprowadź ze mną wywiad.",
+              content: TRIGGER_MESSAGE,
             },
           ],
           chapterSlug: "onboarding",
@@ -81,10 +83,13 @@ export default function OnboardingPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          messages: updatedMessages.map((m) => ({
-            role: m.role,
-            content: m.content,
-          })),
+          messages: [
+            { role: "user", content: TRIGGER_MESSAGE },
+            ...updatedMessages.map((m) => ({
+              role: m.role,
+              content: m.content,
+            })),
+          ],
           chapterSlug: "onboarding",
         }),
       });
