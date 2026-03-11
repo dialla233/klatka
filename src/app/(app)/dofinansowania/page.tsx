@@ -23,7 +23,7 @@ export default function DofinansowaniaPage() {
           </div>
           <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
             <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Horizon Europe — Culture &amp; Creativity</p>
-            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Mega budżety na R&amp;D. &quot;AI-driven storytelling&quot;, &quot;generative media production&quot; — to Twoje słowa kluczowe. Wymaga konsorcjum, ale uczelnia Kieślowskiego może być partnerem.</p>
+            <p style={{ fontSize: "var(--k-text-small)", color: "var(--k-text-tertiary)" }}>Mega budżety na R&amp;D. &quot;AI-driven storytelling&quot;, &quot;generative media production&quot; — to Twoje słowa kluczowe. Wymaga konsorcjum — szukaj uczelni artystycznej lub studia jako partnera.</p>
           </div>
           <div className="rounded-lg border p-4" style={{ background: "var(--k-bg-card)", borderColor: "var(--k-border)" }}>
             <p style={{ fontFamily: "var(--k-font-display)", fontWeight: 600, color: "var(--k-text)", marginBottom: "4px" }}>Runway AI Film Festival</p>
